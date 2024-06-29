@@ -6,7 +6,7 @@ class ExpenseFormScreen extends StatefulWidget {
   final String? initialDescription;
   final String? initialCategory;
 
-  ExpenseFormScreen({
+  const ExpenseFormScreen({super.key, 
     required this.onSubmit,
     this.initialAmount,
     this.initialDescription,
@@ -70,7 +70,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
               TextFormField(
                 controller: _amountController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(labelText: 'Jumlah'),
+                decoration: const InputDecoration(labelText: 'Jumlah'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Masukkan jumlah pengeluaran';
@@ -83,7 +83,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
               ),
               TextFormField(
                 controller: _descriptionController,
-                decoration: InputDecoration(labelText: 'Deskripsi'),
+                decoration: const InputDecoration(labelText: 'Deskripsi'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Masukkan deskripsi';
@@ -93,7 +93,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
               ),
               DropdownButtonFormField<String>(
                 value: _selectedCategory,
-                decoration: InputDecoration(labelText: 'Kategori'),
+                decoration: const InputDecoration(labelText: 'Kategori'),
                 items: [
                   'Belanja',
                   'Cicilan',
@@ -121,17 +121,17 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submitForm,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey,
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
                 child: Text(widget.initialAmount == null
                     ? 'Catat Pengeluaran'
                     : 'Simpan Perubahan'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  textStyle: TextStyle(fontSize: 20),
-                ),
               ),
             ],
           ),

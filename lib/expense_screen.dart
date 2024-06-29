@@ -4,13 +4,15 @@ import 'expense_form_screen.dart';
 import 'income_provider.dart';
 
 class ExpenseScreen extends StatelessWidget {
+  const ExpenseScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final incomeProvider = Provider.of<IncomeProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pengeluaran'),
+        title: const Text('Pengeluaran'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -18,9 +20,9 @@ class ExpenseScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Total Pengeluaran: ${incomeProvider.formatCurrency(incomeProvider.totalExpense)}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -35,14 +37,14 @@ class ExpenseScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('Tambah Pengeluaran'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueGrey,
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                textStyle: TextStyle(fontSize: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                textStyle: const TextStyle(fontSize: 20),
               ),
+              child: const Text('Tambah Pengeluaran'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: incomeProvider.expenseList.length,
@@ -56,7 +58,7 @@ class ExpenseScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         IconButton(
-                          icon: Icon(Icons.edit),
+                          icon: const Icon(Icons.edit),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -75,7 +77,7 @@ class ExpenseScreen extends StatelessWidget {
                           },
                         ),
                         IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           onPressed: () {
                             incomeProvider.deleteExpense(index);
                           },

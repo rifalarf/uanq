@@ -7,6 +7,8 @@ import 'expense_screen.dart';
 import 'financial_report_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final incomeProvider = Provider.of<IncomeProvider>(context);
@@ -18,7 +20,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aplikasiku'),
+        title: const Text('Beranda'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -26,79 +28,40 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 'Arus Kas',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
               ),
               Text(
                 incomeProvider.formatCurrency(cashFlow),
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.arrow_downward, color: Colors.green),
-                  SizedBox(width: 8),
+                  const Icon(Icons.arrow_downward, color: Colors.green),
+                  const SizedBox(width: 8),
                   Text(
                     'Pemasukan: ${incomeProvider.formatCurrency(totalIncome)}',
-                    style: TextStyle(fontSize: 16, color: Colors.green),
+                    style: const TextStyle(fontSize: 16, color: Colors.green),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.arrow_upward, color: Colors.red),
-                  SizedBox(width: 8),
+                  const Icon(Icons.arrow_upward, color: Colors.red),
+                  const SizedBox(width: 8),
                   Text(
                     'Pengeluaran: ${incomeProvider.formatCurrency(totalExpense)}',
-                    style: TextStyle(fontSize: 16, color: Colors.red),
+                    style: const TextStyle(fontSize: 16, color: Colors.red),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => IncomeScreen()),
-                    );
-                  },
-                  child: Text('Pemasukan'),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Color.fromARGB(255, 219, 226, 239),
-                    backgroundColor: Color.fromARGB(
-                        255, 63, 114, 175), // Warna teks di dalam tombol
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    textStyle: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ExpenseScreen()),
-                    );
-                  },
-                  child: Text('Pengeluaran'),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Color.fromARGB(255, 219, 226, 239),
-                    backgroundColor: Color.fromARGB(
-                        255, 63, 114, 175), // Warna teks di dalam tombol
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    textStyle: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -106,28 +69,77 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => FinancialReportScreen()),
+                          builder: (context) => const IncomeScreen()),
                     );
                   },
-                  child: Text('Laporan Keuangan'),
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Color.fromARGB(255, 219, 226, 239),
-                    backgroundColor: Color.fromARGB(
+                    foregroundColor: const Color.fromARGB(255, 219, 226, 239),
+                    backgroundColor: const Color.fromARGB(
                         255, 63, 114, 175), // Warna teks di dalam tombol
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    textStyle: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
+                    textStyle:
+                        const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
                   ),
+                  child: const Text('Pemasukan'),
                 ),
               ),
-              SizedBox(height: 100),
-              Text(
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ExpenseScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: const Color.fromARGB(255, 219, 226, 239),
+                    backgroundColor: const Color.fromARGB(
+                        255, 63, 114, 175), // Warna teks di dalam tombol
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
+                    textStyle:
+                        const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                  ),
+                  child: const Text('Pengeluaran'),
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FinancialReportScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: const Color.fromARGB(255, 219, 226, 239),
+                    backgroundColor: const Color.fromARGB(
+                        255, 63, 114, 175), // Warna teks di dalam tombol
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
+                    textStyle:
+                        const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                  ),
+                  child: const Text('Laporan Keuangan'),
+                ),
+              ),
+              const SizedBox(height: 100),
+              const Text(
                 'Kutipan Hari Ini',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 randomQuote,
-                style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+                style:
+                    const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
                 textAlign: TextAlign.center,
               ),
             ],

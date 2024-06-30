@@ -4,13 +4,15 @@ import 'income_form_screen.dart';
 import 'income_provider.dart';
 
 class IncomeScreen extends StatelessWidget {
+  const IncomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final incomeProvider = Provider.of<IncomeProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pemasukan'),
+        title: const Text('Pemasukan'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -18,9 +20,9 @@ class IncomeScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Total Pemasukan: ${incomeProvider.formatCurrency(incomeProvider.totalIncome)}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -34,16 +36,16 @@ class IncomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('Tambah Pemasukan'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Color.fromARGB(255, 219, 226, 239),
-                backgroundColor: Color.fromARGB(
+                foregroundColor: const Color.fromARGB(255, 219, 226, 239),
+                backgroundColor: const Color.fromARGB(
                     255, 63, 114, 175), // Warna teks di dalam tombol
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                textStyle: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                textStyle: const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
               ),
+              child: const Text('Tambah Pemasukan'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: incomeProvider.incomeList.length,
@@ -57,7 +59,7 @@ class IncomeScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         IconButton(
-                          icon: Icon(Icons.edit),
+                          icon: const Icon(Icons.edit),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -76,7 +78,7 @@ class IncomeScreen extends StatelessWidget {
                           },
                         ),
                         IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           onPressed: () {
                             incomeProvider.deleteIncome(index);
                           },

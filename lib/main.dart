@@ -15,12 +15,21 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => IncomeProvider(),
       child: MaterialApp(
-        title: 'Aplikasiku',
+        title: 'uanq',
         theme: ThemeData(
-          primaryColor: Color.fromRGBO(249, 247, 247, 1),
-          scaffoldBackgroundColor: Color.fromRGBO(249, 247, 247, 1),
-          appBarTheme: AppBarTheme(
-            color: Color.fromARGB(255, 63, 114, 175),
+          primaryColor: const Color.fromRGBO(249, 247, 247, 1), // Warna utama
+          scaffoldBackgroundColor:
+              const Color.fromRGBO(249, 247, 247, 1), // Warna latar belakang
+          appBarTheme: const AppBarTheme(
+            color: Color.fromARGB(255, 63, 114, 175), // Warna AppBar
+            centerTitle: true, // Posisikan judul di tengah
+            titleTextStyle: TextStyle(
+              color: Color.fromRGBO(249, 247, 247, 1), // Warna judul putih
+              fontFamily: 'Poppins',
+              fontSize: 20,
+              fontWeight: FontWeight.normal,
+            ),
+            iconTheme: IconThemeData(color: Colors.black), // Warna ikon AppBar
           ),
           textTheme: const TextTheme(
             bodyMedium: TextStyle(fontFamily: 'Poppins'),
@@ -39,9 +48,9 @@ class MyApp extends StatelessWidget {
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-              foregroundColor: Color.fromARGB(255, 219, 226, 239),
-              backgroundColor: Color.fromARGB(255, 63, 114, 175),
-              textStyle: TextStyle(fontFamily: 'Poppins'),
+              foregroundColor: const Color.fromARGB(255, 219, 226, 239),
+              backgroundColor: const Color.fromARGB(255, 63, 114, 175),
+              textStyle: const TextStyle(fontFamily: 'Poppins'),
             ),
           ),
         ),

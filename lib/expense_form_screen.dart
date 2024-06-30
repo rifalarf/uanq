@@ -6,7 +6,7 @@ class ExpenseFormScreen extends StatefulWidget {
   final String? initialDescription;
   final String? initialCategory;
 
-  const ExpenseFormScreen({super.key, 
+  ExpenseFormScreen({
     required this.onSubmit,
     this.initialAmount,
     this.initialDescription,
@@ -70,7 +70,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
               TextFormField(
                 controller: _amountController,
                 keyboardType: TextInputType.number,
-                decoration: const InputDecoration(labelText: 'Jumlah'),
+                decoration: InputDecoration(labelText: 'Jumlah'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Masukkan jumlah pengeluaran';
@@ -83,7 +83,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
               ),
               TextFormField(
                 controller: _descriptionController,
-                decoration: const InputDecoration(labelText: 'Deskripsi'),
+                decoration: InputDecoration(labelText: 'Deskripsi'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Masukkan deskripsi';
@@ -93,7 +93,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
               ),
               DropdownButtonFormField<String>(
                 value: _selectedCategory,
-                decoration: const InputDecoration(labelText: 'Kategori'),
+                decoration: InputDecoration(labelText: 'Kategori'),
                 items: [
                   'Belanja',
                   'Cicilan',
@@ -121,17 +121,19 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submitForm,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  textStyle: const TextStyle(fontSize: 20),
-                ),
                 child: Text(widget.initialAmount == null
                     ? 'Catat Pengeluaran'
                     : 'Simpan Perubahan'),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Color.fromARGB(255, 219, 226, 239),
+                  backgroundColor: Color.fromARGB(
+                      255, 63, 114, 175), // Warna teks di dalam tombol
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  textStyle: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                ),
               ),
             ],
           ),

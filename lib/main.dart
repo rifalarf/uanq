@@ -17,9 +17,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Aplikasiku',
         theme: ThemeData(
-          primaryColor: Colors.blueGrey,
-          appBarTheme: const AppBarTheme(
-            color: Colors.blueGrey,
+          primaryColor: Color.fromRGBO(249, 247, 247, 1),
+          scaffoldBackgroundColor: Color.fromRGBO(249, 247, 247, 1),
+          appBarTheme: AppBarTheme(
+            color: Color.fromARGB(255, 63, 114, 175),
           ),
           textTheme: const TextTheme(
             bodyMedium: TextStyle(fontFamily: 'Poppins'),
@@ -35,6 +36,13 @@ class MyApp extends StatelessWidget {
             bodySmall: TextStyle(fontFamily: 'Poppins'),
             labelLarge: TextStyle(fontFamily: 'Poppins'),
             labelSmall: TextStyle(fontFamily: 'Poppins'),
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Color.fromARGB(255, 219, 226, 239),
+              backgroundColor: Color.fromARGB(255, 63, 114, 175),
+              textStyle: TextStyle(fontFamily: 'Poppins'),
+            ),
           ),
         ),
         home: const SplashScreen(),

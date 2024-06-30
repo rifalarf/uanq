@@ -4,15 +4,13 @@ import 'expense_form_screen.dart';
 import 'income_provider.dart';
 
 class ExpenseScreen extends StatelessWidget {
-  const ExpenseScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     final incomeProvider = Provider.of<IncomeProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pengeluaran'),
+        title: Text('Pengeluaran'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -20,9 +18,9 @@ class ExpenseScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Total Pengeluaran: ${incomeProvider.formatCurrency(incomeProvider.totalExpense)}',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -37,14 +35,16 @@ class ExpenseScreen extends StatelessWidget {
                   ),
                 );
               },
+              child: Text('Tambah Pengeluaran'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey,
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                textStyle: const TextStyle(fontSize: 20),
+                foregroundColor: Color.fromARGB(255, 219, 226, 239),
+                backgroundColor: Color.fromARGB(
+                    255, 63, 114, 175), // Warna teks di dalam tombol
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                textStyle: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
               ),
-              child: const Text('Tambah Pengeluaran'),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: incomeProvider.expenseList.length,
@@ -58,7 +58,7 @@ class ExpenseScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         IconButton(
-                          icon: const Icon(Icons.edit),
+                          icon: Icon(Icons.edit),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -77,7 +77,7 @@ class ExpenseScreen extends StatelessWidget {
                           },
                         ),
                         IconButton(
-                          icon: const Icon(Icons.delete),
+                          icon: Icon(Icons.delete),
                           onPressed: () {
                             incomeProvider.deleteExpense(index);
                           },

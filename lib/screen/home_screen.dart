@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'income_provider.dart';
-import 'quotes.dart';
+import '../provider/provider.dart';
+import '../utils/quotes.dart';
 import 'income_screen.dart';
 import 'expense_screen.dart';
 import 'financial_report_screen.dart';

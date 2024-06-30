@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'expense_form_screen.dart';
-import 'income_provider.dart';
+import 'income_form_screen.dart';
+import '../provider/provider.dart';
 
-class ExpenseScreen extends StatelessWidget {
-  const ExpenseScreen({super.key});
+class IncomeScreen extends StatelessWidget {
+  const IncomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +12,14 @@ class ExpenseScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pengeluaran'),
+        title: const Text('Pemasukan'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             Text(
-              'Total Pengeluaran: ${incomeProvider.formatCurrency(incomeProvider.totalExpense)}',
+              'Total Pemasukan: ${incomeProvider.formatCurrency(incomeProvider.totalIncome)}',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
@@ -28,10 +28,9 @@ class ExpenseScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ExpenseFormScreen(
+                    builder: (context) => IncomeFormScreen(
                       onSubmit: (amount, description, category) {
-                        incomeProvider.addExpense(
-                            amount, description, category);
+                        incomeProvider.addIncome(amount, description, category);
                       },
                     ),
                   ),
@@ -44,18 +43,18 @@ class ExpenseScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 textStyle: const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
               ),
-              child: const Text('Tambah Pengeluaran'),
+              child: const Text('Tambah Pemasukan'),
             ),
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
-                itemCount: incomeProvider.expenseList.length,
+                itemCount: incomeProvider.incomeList.length,
                 itemBuilder: (context, index) {
-                  final expense = incomeProvider.expenseList[index];
+                  final income = incomeProvider.incomeList[index];
                   return ListTile(
-                    title: Text(expense['description']),
+                    title: Text(income['description']),
                     subtitle: Text(
-                        'Jumlah: ${incomeProvider.formatCurrency(expense['amount'])}\nKategori: ${expense['category']}'),
+                        'Jumlah: ${incomeProvider.formatCurrency(income['amount'])}\nKategori: ${income['category']}'),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -65,12 +64,12 @@ class ExpenseScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ExpenseFormScreen(
-                                  initialAmount: expense['amount'],
-                                  initialDescription: expense['description'],
-                                  initialCategory: expense['category'],
+                                builder: (context) => IncomeFormScreen(
+                                  initialAmount: income['amount'],
+                                  initialDescription: income['description'],
+                                  initialCategory: income['category'],
                                   onSubmit: (amount, description, category) {
-                                    incomeProvider.editExpense(
+                                    incomeProvider.editIncome(
                                         index, amount, description, category);
                                   },
                                 ),
@@ -81,7 +80,7 @@ class ExpenseScreen extends StatelessWidget {
                         IconButton(
                           icon: const Icon(Icons.delete),
                           onPressed: () {
-                            incomeProvider.deleteExpense(index);
+                            incomeProvider.deleteIncome(index);
                           },
                         ),
                       ],

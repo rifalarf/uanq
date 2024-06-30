@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
-import 'income_provider.dart';
+import '../provider/provider.dart';
 
 class FinancialReportScreen extends StatelessWidget {
   const FinancialReportScreen({super.key});

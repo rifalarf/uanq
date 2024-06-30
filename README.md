@@ -1,16 +1,12 @@
-# uanq
+# uanq - financial management 
 
-A new Flutter project.
+Uanq adalah aplikasi catatan keuangan yang memungkinkan Anda mencatat pemasukan dan pengeluaran, serta melihat laporan keuangan secara detail.
 
-## Getting Started
+## Fitur
 
-This project is a starting point for a Flutter application.
+- Catat pemasukan dan pengeluaran
+- Lihat total pemasukan, total pengeluaran, dan arus kas
+- Tampilkan laporan keuangan dalam bentuk spreadsheet
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Overview
+![banner](documentation/banner.png)
